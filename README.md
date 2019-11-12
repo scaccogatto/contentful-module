@@ -13,9 +13,13 @@ export default {
     'contentful-module'
   ],
   contentful: {
-    contentfulEnvironment: 'master',
+    // the default callable env (accessible from $contentful.client)
+    default: process.env.NODE_ENV,
+    // a list of included environments, or a single env (like: 'production')
+    // this is useful when you should filter out some credetials
+    activeEnvironments: [process.env.NODE_ENV, 'test'],
     environments: {
-      master: {
+      production: {
         space: '************',
         accessToken: '*******************************************'
       },
@@ -23,6 +27,14 @@ export default {
         space: '************',
         accessToken: '*******************************************'
       },
+      development: {
+        space: '************',
+        accessToken: '*******************************************'
+      },
+      test: {
+        space: '************',
+        accessToken: '*******************************************'
+      }
     }
   }
 }
@@ -36,7 +48,9 @@ export default {
 export default {
   methods: {
     myMethod() {
-      this.$contentful.master.getEntries(...)
+      // this.$contentful.environments.production.getEntries(...)
+      // this.$contentful.environments.test.getEntries(...)
+      this.$contentful.client.getEntries(...)
     }
   }
 }
@@ -47,7 +61,9 @@ export default {
 ```js
 export default {
   asyncData({ app }) {
-    app.$contentful.master.getEntries(...)
+    // app.$contentful.environments.production.getEntries(...)
+    // app.$contentful.environments.test.getEntries(...)
+    app.$contentful.client.getEntries(...)
   }
 }
 ```
