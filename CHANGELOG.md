@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.4](https://github.com/scaccogatto/contentful-module/compare/v0.1.3...v0.1.4) (2019-11-18)
 
+- Code cleanup
+- Extracted client creator module
+
 ### [0.1.3](https://github.com/scaccogatto/contentful-module/compare/v0.1.2...v0.1.3) (2019-11-12)
 
 - Code cleanup
