@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.1.3](https://github.com/scaccogatto/contentful-module/compare/v0.1.2...v0.1.3) (2019-11-12)
 
+- Code cleanup
+
 ### [0.1.2](https://github.com/scaccogatto/contentful-module/compare/v0.1.1...v0.1.2) (2019-11-12)
 
+- Multiple env support
+
 ### 0.1.1 (2019-11-12)
+
+- First release
