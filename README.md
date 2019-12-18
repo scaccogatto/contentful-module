@@ -9,6 +9,9 @@
 ```js
 // nuxt.config.js
 export default {
+  build: {
+    transpile: ['contentful-module']
+  },
   modules: [
     'contentful-module'
   ],
