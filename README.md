@@ -19,24 +19,28 @@ export default {
     // the default callable env (accessible from $contentful.client)
     default: process.env.NODE_ENV,
     // a list of included environments, or a single env (like: 'production')
-    // this is useful when you should filter out some credetials
+    // this is useful when you should filter out some credentials
     activeEnvironments: [process.env.NODE_ENV, 'test'],
     environments: {
       production: {
         space: '************',
-        accessToken: '*******************************************'
+        accessToken: '*******************************************',
+        environment: 'master'
       },
       staging: {
         space: '************',
-        accessToken: '*******************************************'
+        accessToken: '*******************************************',
+        environment: 'staging'
       },
       development: {
         space: '************',
         accessToken: '*******************************************'
+        environment: 'development'
       },
       test: {
         space: '************',
         accessToken: '*******************************************'
+        environment: 'test'
       }
     }
   }
