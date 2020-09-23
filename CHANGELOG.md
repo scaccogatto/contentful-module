@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/scaccogatto/contentful-module/compare/v0.1.10...v0.1.11) (2020-09-23)
+
+
+### Bug Fixes
+
+* npm publish command ([81b41b0](https://github.com/scaccogatto/contentful-module/commit/81b41b0a82e19c40d026762d5247330ce9ac3999))
+
 ### [0.1.10](https://github.com/scaccogatto/contentful-module/compare/v0.1.9...v0.1.10) (2020-09-23)
 
 
