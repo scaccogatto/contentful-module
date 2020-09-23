@@ -13,7 +13,7 @@
     "standard-version": "^9.0.0"
   },
   "scripts": {
-    "release": "standard-version && git push --follow-tags",
+    "release": "standard-version",
     "test": "echo \"NotFound: no test specified\" && exit 0"
   },
   "repository": {
