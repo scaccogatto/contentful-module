@@ -1,10 +1,27 @@
-# Contentful Module
+# NuxtJS Contentful Module
 
-> multiple-env Contentful generator
+> multiple environment Contentful client binding for NuxtJS
+
+## Features
+
+- Makes `this.$contentful` globally available so you can easily fetch Contentful data everywhere
+- Supports multiple environments, so you can switch easily
+- Available in SSR context (`asyncData`)
 
 ## Install
 
+### Install the module
 `npm i contentful-module`
+
+### Find your API keys
+
+1. Open your Contentful panel
+2. Settings
+3. API keys
+4. Add API key (top right button)
+5. Use Space ID and Content Delivery API - access token in your `nuxt.config.js`
+
+### Edit `nuxt.config.js`
 
 ```js
 // nuxt.config.js
@@ -16,31 +33,13 @@ export default {
     'contentful-module'
   ],
   contentful: {
-    // the default callable env (accessible from $contentful.client)
-    default: process.env.NODE_ENV,
-    // a list of included environments, or a single env (like: 'production')
-    // this is useful when you should filter out some credentials
-    activeEnvironments: [process.env.NODE_ENV, 'test'],
+    default: 'master',
+    activeEnvironments: ['master'],
     environments: {
-      production: {
-        space: '************',
-        accessToken: '*******************************************',
+      master: {
+        space: 'YOUR_SPACE_ID',
+        accessToken: 'CONTENT_DELIVERY_API_ACCESS_TOKEN',
         environment: 'master'
-      },
-      staging: {
-        space: '************',
-        accessToken: '*******************************************',
-        environment: 'staging'
-      },
-      development: {
-        space: '************',
-        accessToken: '*******************************************'
-        environment: 'development'
-      },
-      test: {
-        space: '************',
-        accessToken: '*******************************************'
-        environment: 'test'
       }
     }
   }
@@ -49,15 +48,20 @@ export default {
 
 ## Usage
 
-### Components
+### Contentful docs
+
+You can use `$contentful.client` as explained on [Content Delivery API Docs](https://www.contentful.com/developers/docs/references/content-delivery-api/)
+
+### Components (`.vue` files)
 
 ```js
 export default {
   methods: {
     myMethod() {
-      // this.$contentful.environments.production.getEntries(...)
-      // this.$contentful.environments.test.getEntries(...)
-      this.$contentful.client.getEntries(...)
+      // same as: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters/content-type/query-entries/console/js
+      this.$contentful.client.getEntries({
+        content_type: '<content_type_id>'
+      )}
     }
   }
 }
@@ -68,9 +72,10 @@ export default {
 ```js
 export default {
   asyncData({ app }) {
-    // app.$contentful.environments.production.getEntries(...)
-    // app.$contentful.environments.test.getEntries(...)
-    app.$contentful.client.getEntries(...)
+    // same as: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/search-parameters/content-type/query-entries/console/js
+    app.$contentful.client.getEntries({
+      content_type: '<content_type_id>'
+    )}
   }
 }
 ```
