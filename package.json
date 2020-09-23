@@ -13,8 +13,8 @@
     "standard-version": "^9.0.0"
   },
   "scripts": {
-    "release": "standard-version && git push --follow-tags && npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "standard-version --dry-run && git push --follow-tags",
+    "test": "echo \"NotFound: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
