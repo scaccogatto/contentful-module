@@ -1,16 +1,16 @@
 {
   "name": "contentful-module",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "nuxt contentful module",
   "main": "lib/module.js",
   "directories": {
     "lib": "lib"
   },
   "dependencies": {
-    "contentful": "^7.10.0"
+    "contentful": "^7.14.6"
   },
   "devDependencies": {
-    "standard-version": "^7.0.0"
+    "standard-version": "^9.0.0"
   },
   "scripts": {
     "release": "standard-version && git push --follow-tags && npm publish",
