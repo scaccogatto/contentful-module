@@ -1,7 +1,8 @@
 name: Master
 on:
-  release:
-    types: [created]
+  push:
+    tags:
+      - v*
 
 jobs:
   cancel:
