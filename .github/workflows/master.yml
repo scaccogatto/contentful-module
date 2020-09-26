@@ -1,6 +1,8 @@
 name: Master
 on:
   push:
+    branches:
+      - '**'
     tags:
       - v*
 
