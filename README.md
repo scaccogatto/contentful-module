@@ -4,9 +4,9 @@
 
 ## Features
 
-- Makes `this.$contentful` globally available so you can easily fetch Contentful data everywhere
-- Supports multiple environments, so you can switch easily
-- Available in SSR context (`asyncData`)
+- [x] Makes `this.$contentful` and `app.$contentful` globally available so you can easily fetch Contentful data everywhere
+- [x] Supports multiple environments, so you can switch easily
+- [x] Available in SSR context (`asyncData`)
 
 ## Install
 
@@ -79,3 +79,38 @@ export default {
   }
 }
 ```
+
+### Multiple Environments
+
+```js
+// nuxt.config.js
+export default {
+  build: {
+    transpile: ['contentful-module']
+  },
+  modules: [
+    'contentful-module'
+  ],
+  contentful: {
+    default: 'master', // this will be available by calling this.$contentful.client
+    activeEnvironments: ['master', 'staging'], // useful when you need to activate an environment by using process.env vars
+    environments: {
+      master: {
+        space: 'YOUR_SPACE_ID',
+        accessToken: 'CONTENT_DELIVERY_API_ACCESS_TOKEN',
+        environment: 'master'
+      },
+      staging: {
+        space: 'YOUR_SPACE_ID',
+        accessToken: 'CONTENT_DELIVERY_API_ACCESS_TOKEN',
+        environment: 'staging'
+      }
+    }
+  }
+}
+```
+
+Now you wil be able to:
+
+- [x] Call `master` environment by using `this.$contentful.client` or `this.$contentful.master`
+- [x] Call `staging` environment by using `this.$contentful.staging`
