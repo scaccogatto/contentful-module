@@ -1,6 +1,6 @@
 {
   "name": "contentful-module",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "nuxt contentful module",
   "main": "lib/module.js",
   "directories": {
